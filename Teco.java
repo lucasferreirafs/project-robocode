@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RoscaFrouxa extends TeamRobot {
+public class Teco extends TeamRobot {
 
     // Posição e dados do alvo atual
     private double targetX, targetY, targetVelocity, targetHeading;
@@ -35,7 +35,9 @@ public class RoscaFrouxa extends TeamRobot {
             if (targetName != null && (getTime() - targetLastSeen) > TARGET_TIMEOUT) {
                 targetName = null; // Alvo sumiu, procurar novo
             }
-
+			if(targetName != null) {
+				setRadarColor(new Color(255, 0, 0));
+			}
             moverEmOndas();
             rastrearRadar();
             execute();
@@ -44,11 +46,11 @@ public class RoscaFrouxa extends TeamRobot {
 
     // Aparência personalizada: verde selvagem com detalhes amarelos
     private void configurarAparencia() {
-        setBodyColor(new Color(34, 120, 34));       // verde floresta
-        setGunColor(new Color(200, 180, 0));         // amarelo dourado
-        setRadarColor(new Color(255, 220, 0));       // amarelo brilhante
-        setBulletColor(new Color(255, 80, 0));       // laranja fogo
-        setScanColor(new Color(0, 255, 100));        // verde neon
+        setBodyColor(new Color(34, 120, 191));
+        setGunColor(new Color(0, 0, 100)); 
+        setRadarColor(new Color(2, 155, 0));  
+        setBulletColor(new Color(255, 80, 0)); 
+        setScanColor(new Color(0, 255, 100));
     }
 
     // Movimento em padrão de onda perpendicular ao inimigo (muito difícil de acertar)
